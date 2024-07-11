@@ -1,0 +1,84 @@
+<!--Name: Andre Luiz da Silva Barbosa-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Dice Game Project</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/normalize.css" media="screen" />
+    <link rel="stylesheet" href="css/styles.css" media="screen" />
+    <!--Google Fonts Robot-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!--<script src="js/assignment08.js" defer></script>-->
+    <script src="js/jQuery3.7.js" defer></script>
+    <script src="js/dice-game.js" defer></script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <section id="mainTitle"><p>COMP2132 Project</p></section>
+      </header>
+      <main>
+        <h1>Dice Game</h1>
+        <h3 id="rounds">Round 1</h3>
+        <section class="game-container">
+          <div class="player-container">
+            <h2>Player</h2>
+            <p>Total Score: <span id="player-total-score">0</span></p>
+            <div class="dice-container">
+              <p>Current Rolled Dice</p>
+              <img
+                id="player-die-1"
+                src="images/dice-images/dice-1.png"
+                alt="Main Product Image"
+              />
+              <img
+                id="player-die-2"
+                src="images/dice-images/dice-1.png"
+                alt="Main Product Image"
+              />
+            </div>
+            <p>Current Round Score: <span id="player-round-score">0</span></p>
+          </div>
+
+          <div class="player-container">
+            <h2>Computer</h2>
+            <p>Total Score: <span id="computer-total-score">0</span></p>
+            <div class="dice-container">
+              <p>Current Rolled Dice</p>
+              <img
+                id="computer-die-1"
+                src="images/dice-images/dice-1.png"
+                alt="Main Product Image"
+              />
+              <img
+                id="computer-die-2"
+                src="images/dice-images/dice-1.png"
+                alt="Main Product Image"
+              />
+            </div>
+            <p>Current Round Score: <span id="computer-round-score">0</span></p>
+          </div>
+        </section>
+        <button id="roll-dice">Roll the Dice</button>
+        <button id="start-new-game">Start New Game</button>
+      </main>
+      <section id="pop-up">
+        <div>
+          <h2 id="winner-name">Player wins!</h2>
+          <p id="winner-points">The total score was 29!</p>
+          <button id="close-pop-up">&#x2715;</button>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
