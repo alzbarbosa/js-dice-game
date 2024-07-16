@@ -43,6 +43,7 @@ const player2 = new Player("Computer");
 let numberRounds = 0;
 const MAX_ROUNDS = 3;
 
+// Elements
 const $playerDie1Element = $("#player-die-1");
 const $playerDie2Element = $("#player-die-2");
 const $computerDie1Element = $("#computer-die-1");
@@ -69,12 +70,14 @@ const $computerContainerElement = $("#computer-container");
 $playerNameElement.text(player1.name);
 $computerNameElement.text(player2.name);
 
+// Update image dice
 function updateDiceImages(player, die1Element, die2Element) {
   die1Element.attr("src", `images/dice-images/dice-${player.die1}.png`);
 
   die2Element.attr("src", `images/dice-images/dice-${player.die2}.png`);
 }
 
+// Fadeout the loser
 function fadeOutLoser() {
   if (player1.totalScore > player2.totalScore) {
     $computerContainerElement.fadeOut();
@@ -83,11 +86,13 @@ function fadeOutLoser() {
   }
 }
 
+// Fadein all players
 function fadeInPlayers() {
   $playerContainerElement.fadeIn();
   $computerContainerElement.fadeIn();
 }
 
+// Display the winner
 function displayWinner() {
   if (player1.totalScore > player2.totalScore) {
     $winnerNameElement.text(`${player1.name} wins!`);
@@ -103,6 +108,7 @@ function displayWinner() {
   $popupElement.addClass("show");
 }
 
+// Roll the dice and update the score
 $buttonRollDice.on("click", function () {
   numberRounds += 1;
   player1.rollDice();
@@ -132,6 +138,7 @@ $buttonRollDice.on("click", function () {
   }
 });
 
+// Restart the game
 $buttonStartNewGame.on("click", function () {
   $buttonRollDice.prop("disabled", false);
 
