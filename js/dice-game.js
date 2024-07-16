@@ -60,10 +60,32 @@ const $closeButtonElement = $("#close-pop-up");
 const $winnerNameElement = $("#winner-name");
 const $winnerPointsElement = $("#winner-points");
 
+const $playerNameElement = $("#player-name");
+const $computerNameElement = $("#computer-name");
+
+const $playerContainerElement = $("#player-1-container");
+const $computerContainerElement = $("#computer-container");
+
+$playerNameElement.text(player1.name);
+$computerNameElement.text(player2.name);
+
 function updateDiceImages(player, die1Element, die2Element) {
   die1Element.attr("src", `images/dice-images/dice-${player.die1}.png`);
 
   die2Element.attr("src", `images/dice-images/dice-${player.die2}.png`);
+}
+
+function fadeOutLoser() {
+  if (player1.totalScore > player2.totalScore) {
+    $computerContainerElement.fadeOut();
+  } else if (player1.totalScore < player2.totalScore) {
+    $playerContainerElement.fadeOut();
+  }
+}
+
+function fadeInPlayers() {
+  $playerContainerElement.fadeIn();
+  $computerContainerElement.fadeIn();
 }
 
 function displayWinner() {
@@ -105,7 +127,8 @@ $buttonRollDice.on("click", function () {
 
   if (numberRounds === MAX_ROUNDS) {
     $buttonRollDice.prop("disabled", true);
-    displayWinner();
+    fadeOutLoser();
+    setTimeout(displayWinner, 1000);
   }
 });
 
@@ -128,6 +151,7 @@ $buttonStartNewGame.on("click", function () {
   $computerRoundScoreElement.text(player2.rolledDiceScore);
 
   $popupElement.removeClass("show");
+  fadeInPlayers();
 });
 
 $closeButtonElement.on("click", function () {

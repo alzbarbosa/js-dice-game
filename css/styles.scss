@@ -1,3 +1,19 @@
+$primary-color: #006d77;
+$secondary-color: #83c5be;
+$white-color: #fff;
+$black-color: #000;
+$blue-color: #0b1a61;
+$gray-color: #ccc;
+$alert-color: #da8686;
+$success-color: #10aa25;
+$my-font: "Roboto", sans-serif;
+
+@mixin flex-box-setup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,23 +21,18 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: $my-font;
 }
-
 header {
-  background-color: #006d77;
+  background-color: $primary-color;
   height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-box-setup;
 }
 
 #mainTitle {
   font-size: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
+  @include flex-box-setup;
+  color: $white-color;
 }
 
 main,
@@ -30,17 +41,13 @@ main,
 .game-container,
 .buttons-container {
   margin: 10px;
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: $white-color;
+  @include flex-box-setup;
   flex-direction: column;
 }
 
 #title-game {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-box-setup;
   flex-direction: row;
   gap: 10px;
 }
@@ -54,7 +61,6 @@ main,
 #rounds {
   font-size: 1.5rem;
 }
-
 #player-image,
 #computer-image {
   border-radius: 50%;
@@ -67,7 +73,7 @@ main,
 .game-container {
   flex-direction: row;
   gap: 50px;
-  background-color: #83c5be;
+  background-color: $secondary-color;
   width: 800px;
   height: 400px;
   border-radius: 20px;
@@ -82,13 +88,13 @@ main,
 
 .total-score {
   font-size: 1.25rem;
-  border: 5px double #0b1a61;
+  border: 5px double $blue-color;
   border-radius: 5px;
   padding: 10px;
 }
 
 .current-score {
-  border: 5px solid #83c5be;
+  border: 5px solid $secondary-color;
   border-radius: 5px;
   padding: 10px;
 }
@@ -107,8 +113,8 @@ img {
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #0b1a61;
-  color: #fff;
+  background-color: $blue-color;
+  color: $white-color;
   padding: 50px 20px;
   border-radius: 10px;
   opacity: 0;
@@ -125,17 +131,17 @@ img {
   position: absolute;
   top: 5px;
   right: 5px;
-  color: #fff;
+  color: $white-color;
   font-size: 16px;
   cursor: pointer;
-  background-color: #da8686;
-  border: 1px solid #fff;
+  background-color: $alert-color;
+  border: 1px solid $white-color;
   width: 25px;
 }
 
 .buttons-container button {
-  background-color: #006d77;
-  color: #fff;
+  background-color: $primary-color;
+  color: $white-color;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
@@ -145,16 +151,16 @@ img {
 }
 
 .buttons-container button:hover {
-  background-color: #83c5be;
+  background-color: $secondary-color;
   transform: scale(1.05);
 }
 
 .buttons-container button:active {
-  background-color: #da8686;
+  background-color: $alert-color;
 }
 
 .buttons-container button:disabled {
-  background-color: #ccc;
+  background-color: $gray-color;
   cursor: not-allowed;
 }
 
@@ -164,6 +170,7 @@ img {
     width: 375px;
     height: auto;
   }
+
   #pop-up {
     top: 95%;
   }
